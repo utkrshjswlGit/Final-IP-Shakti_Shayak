@@ -78,7 +78,7 @@ def upgrade() -> None:
     sa.Column('page_num', sa.Integer(), nullable=True),
     sa.Column('char_start', sa.Integer(), nullable=True),
     sa.Column('char_end', sa.Integer(), nullable=True),
-    sa.Column('embedding', sa.Text(), nullable=True),
+    sa.Column('embedding', sa.JSON(), nullable=True),
     sa.Column('id', sa.String(length=36), nullable=False),
     sa.ForeignKeyConstraint(['document_id'], ['documents.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')

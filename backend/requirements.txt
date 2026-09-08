@@ -40,6 +40,13 @@ httpx==0.27.2              # Async HTTP client (LLM calls, testing)
 anyio==4.6.0               # Async runtime (used by httpx/fastapi)
 
 # ---------------------------------------------------------------
+# RAG & AI Pipeline
+# ---------------------------------------------------------------
+openai==1.48.0             # For Embeddings and Chat
+rank-bm25==0.2.2           # Lexical text retrieval
+tiktoken==0.7.0            # Tokenizer for chunking
+
+# ---------------------------------------------------------------
 # Logging
 # ---------------------------------------------------------------
 structlog==24.4.0

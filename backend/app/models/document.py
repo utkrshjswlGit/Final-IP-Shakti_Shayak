@@ -10,7 +10,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base, TimestampMixin, UUIDPrimaryKeyMixin
 
-# pgvector for production; plain Text fallback for tests
+# pgvector for production; plain JSON fallback for tests
 try:
     from pgvector.sqlalchemy import Vector as _Vector
 
@@ -18,8 +18,9 @@ try:
         return Column(_Vector(dim), nullable=True)
 
 except ImportError:
+    from sqlalchemy import JSON
     def _vector_column(dim: int) -> Column:  # type: ignore[type-arg]
-        return Column(Text, nullable=True)
+        return Column(JSON, nullable=True)
 
 
 class TrustTier(int, enum.Enum):
